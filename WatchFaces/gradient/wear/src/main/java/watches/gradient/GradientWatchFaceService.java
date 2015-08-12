@@ -39,6 +39,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Gabby Ortman on 7/9/2015.
+ * Let's do this.
  */
 public class GradientWatchFaceService extends CanvasWatchFaceService{
     @Override
@@ -56,6 +57,7 @@ public class GradientWatchFaceService extends CanvasWatchFaceService{
         Date currDate;
         SimpleDateFormat DayOfWeekFormat;
         java.text.DateFormat dateFormat;
+        boolean lowBitAmbient;
 
         Paint gradientBackgroundPaint;
         Paint currDatePaint;
@@ -80,6 +82,28 @@ public class GradientWatchFaceService extends CanvasWatchFaceService{
         public void onCreate(SurfaceHolder holder) {
             super.onCreate(holder);
             /* initialize your watch face */
+
+            gradientBackgroundPaint = new Paint();
+            gradientBackgroundPaint.setARGB(1, 93, 222, 210);
+            gradientBackgroundPaint.setAntiAlias(true);
+
+            currDatePaint = new Paint();
+            currDatePaint.setARGB(1, 255, 255, 255);
+            currDatePaint.setAntiAlias(true);
+
+            currHour = new Paint();
+            currHour.setARGB(1, 255, 255, 255);
+            currHour.setAntiAlias(true);
+
+            currMin = new Paint();
+            currMin.setARGB(1, 255, 255, 255);
+            currMin.setAntiAlias(true);
+
+            AMPMPaint = new Paint();
+            AMPMPaint.setARGB(1, 255, 255, 255);
+            AMPMPaint.setAntiAlias(true);
+
+            cal = Calendar.getInstance();
         }
 
         @Override
@@ -109,6 +133,7 @@ public class GradientWatchFaceService extends CanvasWatchFaceService{
         public void onVisibilityChanged(boolean visible) {
             super.onVisibilityChanged(visible);
             /* the watch face became visible or invisible */
+
         }
     }
 }
